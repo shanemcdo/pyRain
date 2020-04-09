@@ -1,6 +1,7 @@
 import os
 import time
 import cursor
+import random
 from Trail import Trail
 from msvcrt import kbhit, getch
 
@@ -17,13 +18,13 @@ def main():
 	cursor.hide()
 	os.system("cls")
 	width, height = os.get_terminal_size()
-	trail = Trail(width, height, 20,10)
+	trails = [Trail(width, height, x, random.randrange(1, height)) for x in range(1, width + 1)]
 	running = True
 	while running:
-		trail.draw()
-		trail.update()
+		for trail in trails:
+			trail.draw()
+			trail.update()
 		kbin()
-		time.sleep(0.01)
 	Trail.gotoxy(1,height-1)
 	cursor.show()
 

@@ -11,7 +11,7 @@ class Trail:
 		self.x = x
 		self.y = y
 		if char_list == None:
-			self.list = Trail.get_char_list()
+			self.list = self.get_char_list()
 		else:
 			self.list = char_list
 		self.list_length = len(self.list)
@@ -35,10 +35,11 @@ class Trail:
 		self.y += 1
 		self.list.insert(0, Trail.get_random_char())
 		self.list.pop(-1)
+		if self.y - self.list_length > self.height:
+			self.__init__(self.width, self.height, self.x, 1)
 
-	@staticmethod
-	def get_char_list():
-		return [Trail.get_random_char() for i in range(0, random.randint(5,10))]
+	def get_char_list(self):
+		return [Trail.get_random_char() for i in range(0, random.randint(int(self.height * 0.2), int(self.height * 0.4)))]
 	
 	@staticmethod
 	def get_random_char():
