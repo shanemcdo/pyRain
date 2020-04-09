@@ -1,13 +1,25 @@
 import os
 import cursor
 from Trail import Trail
+from msvcrt import kbhit, getch
 
+def kbin():
+	global running
+	if kbhit():
+		ch = getch().decode('utf-8')
+		if ch == 'q':
+			running = False
+			 
 
 def main():
+	global running
 	cursor.hide()
 	width, height = os.get_terminal_size()
-	trail = Trail(10,5)
-	trail.draw()
+	trail = Trail(width, height, 20,10)
+	running = True
+	while running:
+		trail.draw()
+		kbin()
 	Trail.gotoxy(1,height-1)
 	cursor.show()
 

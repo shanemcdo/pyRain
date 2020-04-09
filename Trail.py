@@ -1,21 +1,35 @@
 import sys
 import random
 import colorama
-colorama.init()
+colorama.init(autoreset = True)
 
 class Trail:
 
-	def __init__(self, x, y, char_list = None, index = 0):
+	def __init__(self, width, height, x, y, char_list = None, index = 0):
+		self.width = width
+		self.height = height
 		self.x = x
 		self.y = y
 		if char_list == None:
 			self.list = Trail.get_char_list()
 		else:
 			self.list = char_list
+		self.list_length = len(self.list)
+		self.index = index
 	
 	def draw(self):
-		Trail.gotoxy(self.x, self.y)
-		print(self.list[0])
+		if self.x > 0 and self.y > 0 and self.x < self.width and self.y < self.height:
+			Trail.gotoxy(self.x, self.y)
+			if self.index == 0:
+				color = colorama.Fore.WHITE
+			else:
+				color = colorama.Fore.GREEN + colorama.Style.BRIGHT
+			print(color + self.list[self.index])
+		if self.index + 1 < self.list_length:
+			Trail(self.width, self.height, self.x, self.y - 1, self.list, self.index + 1).draw()
+
+	def update(self):
+		self.y += 1
 
 	@staticmethod
 	def get_char_list():
