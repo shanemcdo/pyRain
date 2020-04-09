@@ -14,11 +14,13 @@ def kbin():
 def main():
 	global running
 	cursor.hide()
+	os.system("cls")
 	width, height = os.get_terminal_size()
 	trail = Trail(width, height, 20,10)
 	running = True
 	while running:
 		trail.draw()
+		trail.update()
 		kbin()
 	Trail.gotoxy(1,height-1)
 	cursor.show()

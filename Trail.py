@@ -27,9 +27,13 @@ class Trail:
 			print(color + self.list[self.index])
 		if self.index + 1 < self.list_length:
 			Trail(self.width, self.height, self.x, self.y - 1, self.list, self.index + 1).draw()
+		else:
+			Trail.gotoxy(self.x, self.y - 1)
+			print(" ")
 
 	def update(self):
 		self.y += 1
+
 
 	@staticmethod
 	def get_char_list():
