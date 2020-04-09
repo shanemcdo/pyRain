@@ -5,13 +5,17 @@ colorama.init()
 
 class Trail:
 
-	def __init__(self, x, y):
+	def __init__(self, x, y, char_list = None, index = 0):
 		self.x = x
 		self.y = y
-		self.list = Trail.get_char_list()
+		if char_list == None:
+			self.list = Trail.get_char_list()
+		else:
+			self.list = char_list
 	
 	def draw(self):
-		pass
+		Trail.gotoxy(self.x, self.y)
+		print(self.list[0])
 
 	@staticmethod
 	def get_char_list():
@@ -24,5 +28,5 @@ class Trail:
 
 	@staticmethod
 	def gotoxy(x, y):
-		sys.stdout.write(f"\033[{x};{y}H")
+		sys.stdout.write(f"\033[{y};{x}H")
 		sys.stdout.flush()
