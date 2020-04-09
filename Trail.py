@@ -18,7 +18,7 @@ class Trail:
 		self.index = index
 	
 	def draw(self):
-		if self.x > 0 and self.y > 0 and self.x < self.width and self.y < self.height:
+		if self.y > 0 and self.y < self.height:
 			Trail.gotoxy(self.x, self.y)
 			if self.index == 0:
 				color = colorama.Fore.WHITE
@@ -27,7 +27,7 @@ class Trail:
 			print(color + self.list[self.index])
 		if self.index + 1 < self.list_length:
 			Trail(self.width, self.height, self.x, self.y - 1, self.list, self.index + 1).draw()
-		else:
+		elif self.y - 1 > 0 and self.y - 1 < self.height:
 			Trail.gotoxy(self.x, self.y - 1)
 			print(" ")
 
