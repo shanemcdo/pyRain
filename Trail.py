@@ -8,9 +8,14 @@ class Trail:
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
+		self.list = Trail.get_char_list()
 	
 	def draw(self):
 		pass
+
+	@staticmethod
+	def get_char_list():
+		return [Trail.get_random_char() for i in range(0, random.randint(5,10))]
 	
 	@staticmethod
 	def get_random_char():
