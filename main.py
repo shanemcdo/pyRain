@@ -16,6 +16,7 @@ def kbin():
 def main():
 	global running
 	cursor.hide()
+	os.system('mode con: cols=30 lines=15')
 	os.system("cls")
 	width, height = os.get_terminal_size()
 	trails = [Trail(width, height, x, random.randrange(1, height)) for x in range(1, width + 1)]
@@ -27,6 +28,7 @@ def main():
 		kbin()
 	Trail.gotoxy(1,height-1)
 	cursor.show()
+	os.system('mode con: cols=165 lines=42')
 
 if __name__ == '__main__':
 	main()
