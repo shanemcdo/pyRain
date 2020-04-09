@@ -33,7 +33,8 @@ class Trail:
 
 	def update(self):
 		self.y += 1
-
+		self.list.insert(0, Trail.get_random_char())
+		self.list.pop(-1)
 
 	@staticmethod
 	def get_char_list():
