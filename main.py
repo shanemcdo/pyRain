@@ -1,7 +1,6 @@
 import os
-import time
-import cursor
 import random
+import cursor
 from Trail import Trail
 from msvcrt import kbhit, getch
 
@@ -26,7 +25,7 @@ def main():
 			trail.draw()
 			trail.update()
 		kbin()
-	Trail.gotoxy(1,height-1)
+	Trail.gotoxy(1, height-1)
 	cursor.show()
 	os.system('mode con: cols=165 lines=42')
 
