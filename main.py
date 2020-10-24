@@ -10,7 +10,6 @@ def kbin():
 		ch = getch().decode('utf-8')
 		if ch == 'q':
 			running = False
-			 
 
 def main():
 	global running

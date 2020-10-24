@@ -16,7 +16,7 @@ class Trail:
 			self.list = char_list
 		self.list_length = len(self.list)
 		self.index = index
-	
+
 	def draw(self):
 		if self.y > 0 and self.y < self.height:
 			Trail.gotoxy(self.x, self.y)
@@ -40,7 +40,7 @@ class Trail:
 
 	def get_char_list(self):
 		return [Trail.get_random_char() for i in range(0, random.randint(int(self.height * 0.2), int(self.height * 0.4)))]
-	
+
 	@staticmethod
 	def get_random_char():
 		options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
