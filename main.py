@@ -4,15 +4,23 @@ import random
 import cursor
 import time
 from Trail import Trail
+from typing import List
+
+def make_trails(width: int, height: int) -> List[Trail]:
+    return [Trail(width, height, x, random.randrange(-30, height)) for x in range(1, width + 1)]
 
 def main():
     desired_time = 0.05
     try:
         cursor.hide()
         os.system('clear')
-        width, height = os.get_terminal_size()
-        trails = [Trail(width, height, x, random.randrange(-30, height)) for x in range(1, width + 1)]
+        prev_size =  os.get_terminal_size()
+        trails = make_trails(*prev_size)
         while True:
+            if (size := os.get_terminal_size()) != prev_size:
+                os.system('clear')
+                trails = make_trails(*size)
+                prev_size = size
             start_time = time.perf_counter()
             for trail in trails:
                 trail.draw()
