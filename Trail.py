@@ -1,9 +1,12 @@
 import sys
 import random
 import colorama
+import string
 colorama.init(autoreset = True)
 
 class Trail:
+
+    char_options = string.ascii_letters + string.digits + string.punctuation
 
     def __init__(self, width, height, x, y, char_list = None, index = 0):
         self.width = width
@@ -41,10 +44,9 @@ class Trail:
     def get_char_list(self):
         return [Trail.get_random_char() for i in range(0, random.randint(int(self.height * 0.2), int(self.height * 0.4)))]
 
-    @staticmethod
-    def get_random_char():
-        options = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        return random.choice(options)
+    @classmethod
+    def get_random_char(cls):
+        return random.choice(cls.char_options)
 
     @staticmethod
     def gotoxy(x, y):
