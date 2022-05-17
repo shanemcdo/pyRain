@@ -27,12 +27,12 @@ class Trail:
                 color = colorama.Fore.WHITE
             else:
                 color = colorama.Fore.GREEN + colorama.Style.BRIGHT
-            print(color + self.list[self.index])
+            print(color + self.list[self.index], end = '')
         if self.index + 1 < self.list_length:
             Trail(self.width, self.height, self.x, self.y - 1, self.list, self.index + 1).draw()
         elif self.y - 1 > 0 and self.y - 1 < self.height:
             Trail.gotoxy(self.x, self.y - 1)
-            print(" ")
+            print(" ", end = '')
 
     def update(self):
         self.y += 1

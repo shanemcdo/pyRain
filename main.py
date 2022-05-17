@@ -7,6 +7,7 @@ from Trail import Trail
 from typing import List
 
 def make_trails(width: int, height: int) -> List[Trail]:
+    height += 2
     return [Trail(width, height, x, random.randrange(-30, height)) for x in range(1, width + 1)]
 
 def main():
