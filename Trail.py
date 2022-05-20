@@ -26,7 +26,8 @@ class Trail:
             if self.index == 0:
                 color = colorama.Fore.WHITE
             else:
-                color = colorama.Fore.GREEN + colorama.Style.BRIGHT
+                g = max(0, 255 - self.index * (750 // self.height))
+                color = f'\033[38;2;0;{g};0m'
             print(color + self.list[self.index], end = '')
         if self.index + 1 < self.list_length:
             Trail(self.width, self.height, self.x, self.y - 1, self.list, self.index + 1).draw()
