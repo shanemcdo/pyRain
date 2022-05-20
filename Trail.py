@@ -2,7 +2,7 @@ import sys
 import random
 import colorama
 import string
-colorama.init(autoreset = True)
+colorama.init()
 
 class Trail:
 

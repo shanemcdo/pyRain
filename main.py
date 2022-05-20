@@ -14,6 +14,7 @@ def main():
     desired_time = 0.05
     try:
         cursor.hide()
+        print('\033[48;2;0;0;0m')
         os.system('clear')
         prev_size =  os.get_terminal_size()
         trails = make_trails(*prev_size)
